@@ -1,0 +1,61 @@
+
+
+Bubbel;N.V;Arnaud Lambert;Brézé;Chenin Blanc, Chardonnay;Loire;
+Bubbel;2014;Alto Alella;Mirgin Opus;Chardonnay, Pansa Blanca;Katalonien;
+Bubbel;2015;Augusti Torelló;Mata;Macabeo;Katalonien;
+
+
+Vitt;2018;Le Grappin;Savigny-les-Beaune;Chardonnay;Bourgogne;
+Vitt;2018;Le Grappin;Saint Aubin en l’Ebaupin;Chardonnay;Bourgogne;
+Vitt;2018;Le Grappin;Beaune Premier Cru Les Grèves;Chardonnay;Bourgogne;
+Vitt;2017;Domaine Pattes Loup;Mis Tardive;Chardonnay;Chablis;
+Vitt;2018;Domaine du Pélican;Pélican;Savignin;Jura;
+Vitt;2015;Claude Buchot;Terroir du Bry Tradition;Chardonnay;Jura;
+Vitt;2017;Domaine de La Loue;Carbone;Chardonnay;Jura;
+Vitt;2014;Francois Rousset-Martin;Les Macrins;Chardonnay;Jura;
+Vitt;2018;Château du Hureau;Argile;Chenin Blanc;Loire;
+Vitt;2017;Earl Derame;Les Roches Gaudiniéres;Melon de Bourgogne;Loire;
+Vitt;2018;Vassaltis;Assyrtiko;Assyrtiko;Santorini;
+Vitt;2018;Gaia;Wild Ferment Assyrtiko;Assyrtiko;Santorini;
+Vitt;2018;The Sadie Family;Skerpioen;Chenin Blanc, Palomino;Swartland;
+Vitt;2017;Elemental Bob;The Rupert;Chenin Blanc;Stellenbosch;
+Vitt;2019;Crystallum;The Agnes;Chardonnay;Western Cape;
+Vitt;2019;Crystallum;Clay Shales;Chardonnay;Hemel-en-Aarde;
+Vitt;2018;Keller;Kabinett Limestone;Riesling;Rheinhessen;
+Vitt;2017;Stolpman Vineyards;Combe Cuvee August;Chenin Blanc;Ballard Canyon;
+Vitt;2018;Domäne Wachau;Ried Achleiten Smaragd;Riesling;Wachau;
+Vitt;2018;Weingut Josef Jamek;Ried Frauengarten;Grüner Veltliner;Wachau;
+
+
+Rött;2019;Timo Mayer;Dr.Mayer;Pinot Noir;Yarra Valley;
+Rött;2017;Château Le Puy;Le Puy Emilien;Merlot;Bordeaux;
+Rött;2017;G. Descombes;Morgon;Gamay;Beaujolais;
+Rött;2018;Le Grappin;Savigny-les-Beaune;Pinot Noir;Bourgogne;
+Rött;2018;Le Grappin;Santenay Premier Cru Les Gravières;Pinot Noir;Bourgogne;
+Rött;2018;Le Grappin;Beaune Premier Cru Boucherottes;Pinot Noir;Bourgogne;
+Rött;2018;Domaine Faiveley;Mercurey La Framboisière Monopole;Pinot Noir;Bourgogne;
+Rött;2016;Domaine Gérard Courbis;Cornas;Syrah;Cornas;
+Rött;2018;Bruyére Renaud & Houillon Adeline;Arbois-Pupillin;Ploussard;Jura;
+Rött;2018;Domaine L’Aigle À Deux Têtes;Les Clous;Poulsard;Jura;
+Rött;2018;l’Octivin;Boire du Tr… n’est jamais une corvée;Trousseau;Jura;
+Rött;2018;l’Octivin;Dora Bella;Poulsard;Jura;
+Rött;2019;Laurent Herlin;Tsoin Tsoin;Cabernet Franc, Gamay;Loire;
+Rött;2017;Olga Raffault;Les Peuilles;Cabernet Franc;Loire;
+Rött;2018;Château du Hureau;Tuffe ;Cabernet Franc;Loire;
+Rött;2017;Le Rocher des Violettes;Cot;Malbec;Loire;
+Rött;2019;Lamoresca di Filippo Rizzo;Nerocapitano;Frappato;Sicilien;
+Rött;2018;Frank Cornelissen;Susucaru Rosso;Nerello Mascalese;Etna;
+Rött;2019;Frank Cornelissen;Susucaru Rosato;Nerello Mascalese m.fl.;Etna;
+Rött;2018;Frank Cornelissen;Munjabel Rosso;Nerello Mascalese;Etna;
+Rött;2017;O Esterio;Albamar;Mencía, Caiño, Espadeiro;Rías Baixas;
+Rött;2018;The Sadie Family;Soldaat;Grenache;Swartland;
+Rött;2019;Crystallum;Peter Max;Pinot Noir;Western Cape;
+Rött;2019;Crystallum;Cuvée Cinema;Pinot Noir;Hemel-en-Aarde;
+Rött;2019;Crystallum;Mabalel;Pinot Noir;Elandskloof;
+Rött;2019;Stolpman Vineyards;Combe;Trousseau;Ballard Canyon;
+Rött;2019;Stolpman Vineyards;Love You Bunches;Sangiovese;Santa Barbara County;
+Rött;2017;Kutch;Pinot Noir;Pinot Noir;Sonoma Coast;
+
+
+Sött;2011;Henri Maire;Vin Jaune;Savignin;Château-Chalon;
+Sött;2018;Cascina Vano;Moscato d’Asti;Moscato;Piemonte;
