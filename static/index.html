@@ -33,7 +33,7 @@
 
         <tbody>
 
-                <tr v-for="wine in wines">
+                <tr v-for="wine in wines" onclick="rowClicked">
                     <td>{{wine.Type}}</td>
                     <td>{{wine.Year}}</td>    
                     <td>{{wine.Producer}}</td> 
@@ -78,6 +78,9 @@
             } catch (error) {
               console.error(error)
             }
+          }, 
+          rowClicked() {
+            console.log("rowClicked")
           }
         }
         });
