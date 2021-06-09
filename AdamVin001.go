@@ -12,7 +12,7 @@ import (
 
 type WineInfo struct {
 	Type     string
-	Year     int32
+	Year     string
 	Producer string
 	Brand    string
 	Grapes   []string

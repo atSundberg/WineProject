@@ -1,6 +1,6 @@
 
 
-Bubbel;N.V;Arnaud Lambert;Brézé;Chenin Blanc, Chardonnay;Loire;
+Bubbel;1;Arnaud Lambert;Brézé;Chenin Blanc, Chardonnay;Loire;
 Bubbel;2014;Alto Alella;Mirgin Opus;Chardonnay, Pansa Blanca;Katalonien;
 Bubbel;2015;Augusti Torelló;Mata;Macabeo;Katalonien;
 

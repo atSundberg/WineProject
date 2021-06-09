@@ -7,25 +7,46 @@
         <!-- Optional theme -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
         <!-- Latest compiled and minified JavaScript -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>      
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>   
+        
 
     </head>
+
+
    <body >
     <div id="app" class="panel-group" >
     <div  class="panel panel-default">
-        <div class="panel-heading">
-          <p>
-            <h1 >{{ message }}</h1>
-          </p>                                
-        </div>    
 
-     <table class="table table-striped">
-        <thead>
+        <div class="panel-heading text-center">
+          <p>
+            <h1 class="display-1">{{ message }}</h1>
+          </p>
+        </div>    
+        
+
+        
+        <div class="dropdown">
+          <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            Sortera
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            <li><a href="#">Producent</a></li>
+            <li><a href="#">Region</a></li>
+            <li><a href="#">Årgång</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </div>
+
+
+     <table class="table table-hover table-striped table-center">
+       <thead class="table-dark">
             <tr>
                 <th>Type</th>
                 <th>Year</th>    
                 <th>Producer</th> 
-                <th>Brand</th> 
+                <th>Name</th> 
                 <th>Grapes</th> 
                 <th>Region</th> 
             </tr>
@@ -47,7 +68,7 @@
      <footer class="footer navbar-default bg-light text-center text-lg-start">
         <div class="container">
             <p>
-                Adams win, 2021
+                Adams wines, 2021
             </p>
         </div>            
     </footer>
@@ -56,7 +77,7 @@
         var vue_det = new Vue({
            el: '#app',
            data: {
-              message: 'Adams winlista',
+              message: 'Adams Wine List',
               wines : [
                   {Type:'Bubbel',Year:1919,Producer:'N.V',Brand:'Arnaud Lambert',Grapes:['Chenin Blanc', 'Chardonnay'],Region:'Brézé'},
                   {Type:'Bubbel',Year:2014,Producer:'Alto Alella',Brand:'Mirgin Opus',Grapes:['Chardonnay', 'Pansa Blanca'],Region:'Katalonien'}]
