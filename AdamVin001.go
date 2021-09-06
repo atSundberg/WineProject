@@ -12,7 +12,7 @@ import (
 
 type WineInfo struct {
 	Type     string
-	Year     string
+	Year     int32
 	Producer string
 	Brand    string
 	Grapes   []string
@@ -54,6 +54,21 @@ func writeFile(fileName string, data string) {
 		log.Fatal(err2)
 	}
 }
+
+func sortFile(sortBy string) {
+	
+	switch sortBy {
+	case "Producer":
+		//Sortera på producent
+	case "Region":
+		//Sortera på region
+	case "Year":
+		//Sortera på year
+	default:
+		//Sortera på typ
+	}
+}
+
 
 func main() {
 	data := readFile("./WineList.txt")
