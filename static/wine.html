@@ -1,72 +1,130 @@
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="https://unpkg.com/vue@next"></script>
+    <title>Wine List</title>
 
+    <link rel="icon" href="" type="bottle">
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/vue@next"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="CSS/wine.css">
     </head>
 
-    <body >
-        <div id="app" class="panel-group" >
-            <div  class="panel panel-default">
+   <body >
+    <div id="app" class="panel-group" >
 
-                <div class="panel-heading text-center">
-                    <p>
-                        <h1 class="display-1">{{ message }}</h1>
-                    </p>
-                </div>
+      
+    <div  class="panel panel-default">
 
-                <div class="dropdown">
-                    <button 
-                        class="btn btn-primary dropdown-toggle" 
-                        type="button" id="dropdownMenuButton1" 
-                        data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        SortOrder: {{sortOrder}}
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" role="menu">
-                        <li v-for="option in sortOptions" :key="option">
-                            <a class="dropdown-item" @click="sortOrder = option" href="javascript:void(0)">{{option}}</a>
-                        </li>
-                    </ul>
-                </div>
-
-            <table class="table table-hover table-striped table-center">
-                <thead class="table-dark">
-                    <tr>
-                        <th>Type</th>
-                        <th>Year</th>
-                        <th>Producer</th>
-                        <th>Name</th>
-                        <th>Grapes</th>
-                        <th>Region</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    <tr v-for="wine in orderedBySel" onclick="rowClicked">
-                        <td>{{wine.Type}}</td>
-                        <td>{{wine.Year}}</td>
-                        <td>{{wine.Producer}}</td>
-                        <td>{{wine.Brand}}</td>
-                        <td>{{wine.Grapes}}</td>
-                        <td>{{wine.Region}}</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <footer class="footer navbar-default bg-light text-center text-lg-start">
-                <div class="container">
-                    <p> Adams wines, &copy; 2021 </p>
-                </div>
-            </footer>
-
+        <div class="panel-heading text-center">
+          <p>
+            <h1 class="display-1 text-secondary"><i class="fas fa-wine-bottle mx-4"></i> {{ message }}</h1>
+          </p>
         </div>
+  
+    
+    <div class="container-fluid">
+      <div class="row pb-1">
+        <div class="input-group">
+          <div class="">
+            <button type="button" class="btn btn-warning" id="add-wine" style="float: right;" v-on:click=""> <i class="bi bi-plus-circle"></i> Add Wine </button>
+          </div>
 
-        <script src="wine.js"></script>
-    </body>
+        <input type="text" class="form-control" placeholder="Search for a wine..." aria-label="Name of wine"> 
+
+
+        <!-- <div class="input-group-append col-xs-12 col-md-1">
+          <button v-on:click="search()" class="btn btn-outline-secondary" type="button"> <i class="bi bi-search"></i> Search </button>
+        </div> -->
+        <div class="button-in-row">
+          <button
+            class="btn btn-outline-success dropdown-toggle"
+            type="button" id="dropdownMenuButton1"
+            data-bs-toggle="dropdown"
+            aria-expanded="false">
+            {{sortOrder}}
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" role="menu">
+            <li v-for="option in sortOptions" :key="option">
+              <a class="dropdown-item" @click="sortOrder = option" href="javascript:void(0)">{{option}}</a>
+            </li>
+          </ul>
+        </div>
+    </div>
+      </div>
+    </div>
+
+
+
+           <table class="table table-hover table-striped table-center">
+       <thead class="table-dark">
+            <tr>
+                <th>Type</th>
+                <th>Year</th>
+                <th>Producer</th>
+                <th>Name</th>
+                <th>Grapes</th>
+                <th>Region</th>
+            </tr>
+          </thead>
+
+        <tbody>
+          <template v-for="wine in orderedBySel">
+                <tr v-on:click="rowClicked(wine)" >
+                    <td>{{wine.Type}}</td>
+                    <td>{{wine.Year}}</td>
+                    <td>{{wine.Producer}}</td>
+                    <td>{{wine.Name}}</td>
+                    <td>{{wine.Grapes}}</td>
+                    <td>{{wine.Region}}</td>
+                </tr>
+                <tr v-if="wine.WineClicked">
+                  <td :colspan="4" >
+                    <div class="accordian-body">
+                      <h5>Om {{selectedWine.Name}}: </h5> <br /> 
+                      {{info}}
+                    </div>
+                  </td>
+                  <td :colspan="4" >
+                    <div class="accordian-body">
+                      <h5>Vinifikation: </h5> <br /> 
+
+                      {{info}}
+                    </div>
+                  </td>
+                </tr>
+              </template>
+        </tbody>
+     </table>
+
+     </div>
+
+     <footer class="footer navbar-default bg-light text-lg-start">
+        <div class="container text-center">
+            <p>
+                Adam's wines – Copyright &copy; 2021
+            </p>
+        </div>
+    </footer>
+
+     </div>
+
+     <script src="./wine.js"></script>
+   </body>
 </html>
+
+
+
+<!-- TODO:        
+    - Buttons for wine types 
+    - Button for editing wines
+    - Checkbox for "uppdrucket"? 
+    - -->
