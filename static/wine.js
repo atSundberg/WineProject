@@ -56,16 +56,8 @@ var vue_det = Vue.createApp({
 
         this.wines = data
 
-        for(var i = 0; i < this.wines.length; i++){
-          for(var x = 0; i < this.wines.Grapes.length; i++) {
-            this.wines.Grapes[x].replace(re, '');
-          }
-        }
-
         console.log("data:", data);
 
-
-        
 
       } catch (error) {
         console.error(error)

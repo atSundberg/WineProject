@@ -14,9 +14,10 @@ type WineInfo struct {
 	Type     string
 	Year     int32
 	Producer string
-	Brand    string
+	Name    string
 	Grapes   []string
 	Region   string
+	WineClicked		bool
 }
 
 func buildRecord(fields []string) WineInfo {
@@ -25,9 +26,10 @@ func buildRecord(fields []string) WineInfo {
 		Type:     fields[0],
 		Year:     int32(year),
 		Producer: fields[2],
-		Brand:    fields[3],
+		Name:    fields[3],
 		Grapes:   strings.Split(fields[4], ","),
 		Region:   fields[5],
+		WineClicked: 	false,
 	}
 }
 func readFile(fileName string) string {
