@@ -51,7 +51,7 @@ var vue_det = Vue.createApp({
   methods: {
     async loadWine() {
       try {
-        const response  = await fetch('/WineList.json' + '?' + new Date().getTime())
+        const response  = await fetch('./WineList.json' )//+ '?' + new Date().getTime())
         const data      = await response.json()
 
         this.wines = data
