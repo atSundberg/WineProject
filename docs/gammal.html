@@ -1,0 +1,116 @@
+<html>
+   <head>
+        <script type = "text/javascript" src = "https://unpkg.com/vue@2.6.12/dist/vue.js"></script>
+
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>   
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    </head>
+
+
+   <body >
+    <div id="app" class="panel-group" >
+    <div  class="panel panel-default">
+
+        <div class="panel-heading text-center">
+          <p>
+            <h1 class="display-1">{{ message }}</h1>
+          </p>
+        </div>    
+        
+
+        
+        <div class="dropdown" :class="{'open': open}">
+          <a @click="open = !open">{{selectedValue}}<b class="caret"></b></a>
+          <button class="btn btn-warning dropdown-toggle " type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            Sortera
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            <li><a href="#">Producent</a></li>
+            <li><a href="#">Region</a></li>
+            <li><a href="#">Årgång</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </div>
+
+
+     <table class="table table-hover table-striped table-center">
+       <thead class="table-dark">
+            <tr>
+                <th>Type</th>
+                <th>Year</th>    
+                <th>Producer</th> 
+                <th>Name</th> 
+                <th>Grapes</th> 
+                <th>Region</th> 
+            </tr>
+          </thead>
+
+        <tbody>
+
+                <tr v-for="wine in wines" onclick="rowClicked">
+                    <td>{{wine.Type}}</td>
+                    <td>{{wine.Year}}</td>    
+                    <td>{{wine.Producer}}</td> 
+                    <td>{{wine.Brand}}</td> 
+                    <td>{{wine.Grapes}}</td> 
+                    <td>{{wine.Region}}</td> 
+                </tr>
+        </tbody>
+     </table>
+     
+     <footer class="footer navbar-default bg-light text-center text-lg-start">
+        <div class="container">
+            <p>
+                Adams wines, 2021
+            </p>
+        </div>            
+    </footer>
+
+     <script type = "text/javascript">
+        var vue_det = new Vue({
+           el: '#app',
+           data: {
+              message: 'Adams Wine List',
+              wines : [
+                  {Type:'Bubbel',Year:1919,Producer:'N.V',Brand:'Arnaud Lambert',Grapes:['Chenin Blanc', 'Chardonnay'],Region:'Brézé'},
+                  {Type:'Bubbel',Year:2014,Producer:'Alto Alella',Brand:'Mirgin Opus',Grapes:['Chardonnay', 'Pansa Blanca'],Region:'Katalonien'}],
+              open:  false
+           }, created () {
+    // fetch the data when the view is created and the data is
+    // already being observed
+          this.loadWine()
+        },
+        methods: {
+          async loadWine() {
+            try {
+              const response  = await fetch('/WineList.json' + '?' + new Date().getTime())
+              const data      = await response.json()
+
+              console.log("data:", data);
+
+              this.wines = data
+
+            } catch (error) {
+              console.error(error)
+            }
+          }, 
+          rowClicked() {
+            console.log("rowClicked")
+          }
+        }
+        });
+     </script>       
+     </div>
+   </body>
+</html>
