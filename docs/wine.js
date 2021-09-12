@@ -3,13 +3,20 @@ var vue_det = Vue.createApp({
 
     data() {
       return {
-
+        versionSet: 2.3,
         message: 'Wine List',
         sortOrder: 'Sort by',
         sortOptions: ['Producer', 'Region', 'Type', 'Year'],
         // wineClicked: false,
         selectedWine: [],
         info: 'This is good',
+        filter: '',
+        selectType: '',
+        name: '',
+        vintageField: '',
+        producerField: '',
+        aboutField: '',
+        vinificationField: '',
         wines : [
           {Type:'Bubbel',Year:2019,Producer:'N.V',Name:'Arnaud Lambert',Grapes:['Chenin Blanc', 'Chardonnay'],Region:'Brézé', wineClicked: false},
           {Type:'Bubbel',Year:2014,Producer:'Alto Alella',Name:'Mirgin Opus',Grapes:['Chardonnay', 'Pansa Blanca'],Region:'Katalonien', wineClicked: false},
@@ -25,7 +32,6 @@ var vue_det = Vue.createApp({
   computed: {
     orderedBySel: function () {      
 //      console.log(":>", this.sortOrder, this.wines)
-      var re = new RegExp('[^a-z|^A-Z]\, \]');
       var key = this.sortOrder;
       return this.wines.sort(
         function(a,b){           
@@ -36,6 +42,21 @@ var vue_det = Vue.createApp({
       }
       );            
     },
+
+    filteredWines() {
+      return this.orderedBySel.filter(wine => {
+        const wineName = wine.Name.toString().toLowerCase();
+        const wineProducer = wine.Producer.toLowerCase();
+        const wineGrape = wine.Grapes.toLowerCase();
+        const searchTerm = this.filter.toLowerCase();
+  
+        return wineName.includes(searchTerm) ||
+          wineProducer.includes(searchTerm) ||
+          wineGrape.includes(searchTerm);
+      });
+    }
+  },
+
     searchedWine: function ()  {
       return wines.value.filter((wine) => {
         return (
@@ -47,7 +68,7 @@ var vue_det = Vue.createApp({
       );
   },
   
-},
+
   methods: {
     async loadWine() {
       try {
@@ -63,16 +84,21 @@ var vue_det = Vue.createApp({
         console.error(error)
       }
     },
+
+    displayGrapes: function(wine) {
+      return wine.Grapes.join(', ');      
+    },
+
+    submitForm(evt) {
+      evt.preventDefault();
+      console.log(this.nameField);
+      console.log(this.selectType);
+    },
      
     rowClicked: function(wine) {
       this.selectedWine.WineClicked = !this.selectedWine.WineClicked
       wine.WineClicked = !wine.WineClicked
       this.selectedWine = wine 
-      console.log(wine.Name)
-      console.log(wine.WineClicked)
-      for(var i = 0; i < wine.Grapes.length; i++) {
-        console.log(wine.Grapes[i].replace(this.re, ''))
-      }
 
       // this.info = getInfo(wine)
       },

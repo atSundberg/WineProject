@@ -30,20 +30,18 @@
           </p>
         </div>
   
+        
     
     <div class="container-fluid">
       <div class="row pb-1">
         <div class="input-group">
           <div class="">
-            <button type="button" class="btn btn-warning" id="add-wine" style="float: right;" v-on:click=""> <i class="bi bi-plus-circle"></i> Add Wine </button>
+            <button type="button" class="btn btn-warning" id="add-wine" style="float: right;" data-bs-toggle="modal" data-bs-target="#addWineModal"> <i class="bi bi-plus-circle"></i> Add Wine </button>
           </div>
 
-        <input type="text" class="form-control" placeholder="Search for a wine..." aria-label="Name of wine"> 
+        <input type="text" class="form-control" placeholder="Search for a wine..." aria-label="SearchWineLabel" v-model="filter"> 
 
 
-        <!-- <div class="input-group-append col-xs-12 col-md-1">
-          <button v-on:click="search()" class="btn btn-outline-secondary" type="button"> <i class="bi bi-search"></i> Search </button>
-        </div> -->
         <div class="button-in-row">
           <button
             class="btn btn-outline-success dropdown-toggle"
@@ -83,7 +81,7 @@
                     <td>{{wine.Year}}</td>
                     <td>{{wine.Producer}}</td>
                     <td>{{wine.Name}}</td>
-                    <td>{{wine.Grapes}}</td>
+                    <td>{{ displayGrapes(wine) }}</td>
                     <td>{{wine.Region}}</td>
                 </tr>
                 <tr v-if="wine.WineClicked">
@@ -104,18 +102,81 @@
               </template>
         </tbody>
      </table>
-
-     </div>
+     
+    
 
      <footer class="footer navbar-default bg-light text-lg-start">
-        <div class="container text-center">
-            <p>
-                Adam's wines – Copyright &copy; 2021
-            </p>
+       <div class="container text-center">
+         <p>
+           Adam's wines – Copyright &copy; 2021 Version: {{ versionSet }}
+          </p>
         </div>
-    </footer>
+      </footer>
 
      </div>
+
+     <div class="modal fade" id="addWineModal" tabindex="-1" aria-labelledby="addWineModalLabel" >
+      <div class="modal-dialog modal-dialog-centered">
+         <div class="modal-content">
+           <div class="modal-header">
+             <h5 class="modal-title text-center">Add a New Wine</h5>
+             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+                   <!-- <form @submit="submitForm" class="ui form"> -->
+            <div class="modal-body">
+            <div class="input-group mb-3">
+              <!-- <label class="input-group-text px-2" for="inputGroupSelect01" style="width: 90px; font-weight: 500;">Type</label> -->
+              <select v-model="selectType" class="form-select">
+                <option selected>Choose type...</option>
+                <option value="1">Sparkling Wine</option>
+                <option value="2">White Wine</option>
+                <option value="3">Red Wine</option>
+                <option value="4">Sweet Wine</option>
+              </select>
+            </div>
+
+            <div class="input-group mb-3">
+              <!-- <span class="input-group-text px-2" id="inputGroup-sizing-default" style="width: 90px; font-weight: 500;">Name</span> -->
+              <input v-model="name" type="text" class="form-control" placeholder="Name of the wine..." aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+              <p>Message is: {{ name }}</p>
+            </div>
+
+            <div class="input-group mb-3">
+              <!-- <span class="input-group-text px-2" id="inputGroup-sizing-default" style="width: 90px; font-weight: 500;">Vintage</span> -->
+              <input v-model.number="vintageField" type="number" class="form-control" placeholder="Vintage..." aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+
+            <div class="input-group mb-3">
+              <!-- <span class="input-group-text px-2" id="inputGroup-sizing-default" style="width: 90px; font-weight: 500;">Producer</span> -->
+              <input v-model="producerField" type="text" class="form-control" placeholder="Producer..." aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+
+            <div class="input-group mb-3">
+              <!-- <span class="input-group-text px-2" id="inputGroup-sizing-default" style="width: 90px; font-weight: 500;">Region</span> -->
+              <input v-model="regionField" type="text" class="form-control" placeholder="Region..." aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+
+            <div class="input-group mb-3">
+              <!-- <span class="input-group-text px-2" style="width: 90px; font-weight: 500;">About</span> -->
+              <textarea v-model="AboutField" class="form-control" placeholder="About..." aria-label="With textarea"></textarea>
+            </div>
+
+            <div class="input-group">
+              <!-- <span class="input-group-text px-2" style="width: 105px; font-weight: 500;">Vinification</span> -->
+              <textarea v-model="vinificationField" class="form-control" placeholder="Vinification..." aria-label="With textarea"></textarea>
+            </div>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button class="ui button btn btn-primary">Submit</button>
+          </div>
+
+        <!-- </form> -->
+         </div>
+      </div>
+   </div>
+  </div>
 
      <script src="./wine.js"></script>
    </body>
